@@ -10,10 +10,25 @@ body {
     font-family: sans-serif;
 }
 
+img {
+    width: 100%;
+}
+
 
 /* utilities */
 
+.vs-row {
+    display: flex;
+}
 
+.vs-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.vs-flex-grow {
+    flex-grow: 1;
+}
 
 
 /* contents */
@@ -21,11 +36,12 @@ body {
 #root {
     height: 100vh;
     position: relative;
+    overflow-y: hidden;
 }
 
 .vs-bg-lightgreen {
     background-color: #009688;
-    height: 20vh;
+    height: 18vh;
     width: 100%;
     position: absolute;
     z-index: -1;
@@ -41,12 +57,44 @@ body {
 }
 
 .vs-boolzap-container {
-    max-width: 1000px;
-    height: 90vh;
+    max-width: 1200px;
+    height: 94vh;
     margin: 0 auto;
     background-color: white;
-    margin-top: 5vh;
+    margin-top: 3vh;
+}
+
+#left-side-app {
+    width: 40%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.vs-contact-avatar {
+    width: 60px;
+}
+
+.vs-contact-avatar img {
+    border-radius: 50%;
+}
+
+
+
+
+#right-side-app {
+    width: 60%;
 }
 
 
 /* effects */
+
+
+
+
+/* debug */
+
+.vs-debug #left-side-app>div {
+    min-height: 5vh;
+    background-color: aqua;
+    border: 1px solid grey;
+}

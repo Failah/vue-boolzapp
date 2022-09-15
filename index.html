@@ -16,10 +16,33 @@
 </head>
 
 <body>
-    <div id="root">
+    <div id="root" class="vs-debug">
         <div class="vs-bg-lightgreen"></div>
         <div class="vs-bg-lightgrey"></div>
-        <div class="vs-boolzap-container"></div>
+        <div class="vs-boolzap-container">
+            <div id="left-side-app" class="vs-column">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="vs-row" v-for="(contact, index) in contacts">
+                    <div class="vs-contact-avatar">
+                        <img class="img-fluid" :src="contacts[index].avatar" alt="">
+                    </div>
+                    <div class="vs-flex-grow">
+                        <div class="vs-row justify-content-between">
+                            <span>{{ contacts[index].name }}</span>
+                            <span>12:00</span>
+                        </div>
+                        <p>
+                            Ultimo messaggio inviato
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="right-side-app">
+
+            </div>
+        </div>
     </div>
 </body>
 
