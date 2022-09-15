@@ -18,7 +18,35 @@ body {
 
 /* contents */
 
+#root {
+    height: 100vh;
+    position: relative;
+}
 
+.vs-bg-lightgreen {
+    background-color: #009688;
+    height: 20vh;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    margin-top: -5vh;
+}
+
+.vs-bg-lightgrey {
+    background-color: #d9dbd5;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    z-index: -2;
+}
+
+.vs-boolzap-container {
+    max-width: 1000px;
+    height: 90vh;
+    margin: 0 auto;
+    background-color: white;
+    margin-top: 5vh;
+}
 
 
 /* effects */
