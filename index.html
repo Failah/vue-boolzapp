@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.10/vue.min.js"
         integrity="sha512-H8u5mlZT1FD7MRlnUsODppkKyk+VEiCmncej8yZW1k/wUT90OQon0F9DSf/2Qh+7L/5UHd+xTLrMszjHEZc2BA=="
@@ -19,28 +22,88 @@
     <div id="root" class="vs-debug">
         <div class="vs-bg-lightgreen"></div>
         <div class="vs-bg-lightgrey"></div>
-        <div class="vs-boolzap-container">
+        <div class="vs-boolzap-container vs-row">
             <div id="left-side-app" class="vs-column">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div class="vs-row" v-for="(contact, index) in contacts">
-                    <div class="vs-contact-avatar">
-                        <img class="img-fluid" :src="contacts[index].avatar" alt="">
-                    </div>
-                    <div class="vs-flex-grow">
-                        <div class="vs-row justify-content-between">
-                            <span>{{ contacts[index].name }}</span>
-                            <span>12:00</span>
+
+                <!-- LOGGED USER TOP AREA -->
+                <div id="logged-user" class="vs-row vs-bg-user-grey justify-content-between align-items-center">
+                    <div class="vs-row align-items-center">
+                        <div class="vs-contact-avatar ms-2 my-2">
+                            <img class="img-fluid" src="img/avatar_io.jpg" alt="">
                         </div>
-                        <p>
-                            Ultimo messaggio inviato
-                        </p>
+                        <span>Sofia</span>
+                    </div>
+                    <div class="icon-area vs-row">
+                        <div class="me-4"><i class="fa-solid fa-circle-notch"></i></div>
+                        <div class="me-4"><i class="fa-solid fa-message"></i></div>
+                        <div class="me-4"><i class="fa-solid fa-ellipsis-vertical"></i></div>
                     </div>
                 </div>
-            </div>
-            <div id="right-side-app">
 
+                <!-- NOTIFICATION AREA -->
+                <div id="notification-area" class="vs-row">
+                    <div>
+
+                    </div>
+                    <div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+
+                <!-- SEARCH AREA -->
+                <div>
+
+                </div>
+
+                <!-- CONTACTS AREA -->
+                <div class="contacts-container">
+                    <div id="contacts-area" @click="setActiveContact(index)" class="vs-row"
+                        :class="{ 'active-chat': index === activeIndex }" v-for="(contact, index) in contacts">
+                        <div class="vs-contact-avatar">
+                            <img class="img-fluid" :src="contacts[index].avatar" :alt="contact.name">
+                        </div>
+                        <div class="vs-flex-grow">
+                            <div class="vs-row justify-content-between">
+                                <span>{{ contacts[index].name }}</span>
+                                <span>12:00</span>
+                            </div>
+                            <p>
+                                Ultimo messaggio inviato
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="right-side-app">
+                <div id="active-chatting-user"
+                    class="vs-row vs-bg-user-grey justify-content-between align-items-center">
+                    <div class="vs-row align-items-center">
+                        <div class="vs-contact-avatar ms-2 my-2">
+                            <img class="img-fluid" src="img/avatar_1.jpg" alt="Mattia">
+                        </div>
+                        <span>Mattia</span>
+                    </div>
+                    <div class="icon-area vs-row">
+                        <div class="me-4"><i class="fa-solid fa-circle-notch"></i></div>
+                        <div class="me-4"><i class="fa-solid fa-message"></i></div>
+                        <div class="me-4"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                    </div>
+                </div>
+
+                <div id="chat-area" class="vs-column justify-content-between">
+                    <div id="messages-container">
+                        <div v-for="message in contacts[activeIndex].messages" class="message">
+                            {{ message.message }}
+                        </div>
+                    </div>
+
+                    <div id="new-message-area">
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>

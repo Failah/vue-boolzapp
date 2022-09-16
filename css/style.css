@@ -30,6 +30,10 @@ img {
     flex-grow: 1;
 }
 
+.active-chat {
+    background-color: #e9ebeb;
+}
+
 
 /* contents */
 
@@ -56,8 +60,12 @@ img {
     z-index: -2;
 }
 
+.vs-bg-user-grey {
+    background-color: #eaeaea;
+}
+
 .vs-boolzap-container {
-    max-width: 1200px;
+    max-width: 1600px;
     height: 94vh;
     margin: 0 auto;
     background-color: white;
@@ -67,7 +75,10 @@ img {
 #left-side-app {
     width: 40%;
     height: 100%;
-    overflow-y: scroll;
+}
+
+#logged-user {
+    border-right: 1px solid #b1b1b1;
 }
 
 .vs-contact-avatar {
@@ -78,23 +89,57 @@ img {
     border-radius: 50%;
 }
 
+.icon-area {
+    color: #b1b1b1;
+    font-size: 1.5rem;
+}
 
+.fa-solid {
+    cursor: pointer;
+}
 
+#notification-area {
+    background-color: #8edafc;
+}
+
+.contacts-container {
+    overflow-y: scroll;
+    height: 81%;
+}
+
+#contacts-area {
+    border-top: 1px solid #eaeaea;
+}
 
 #right-side-app {
     width: 60%;
 }
 
+#chat-area {
+    height: 805px;
+}
+
+#messages-container {
+    overflow-y: scroll;
+    flex-grow: 1;
+}
+
+#new-message-area {
+    height: 70px;
+    background-color: #f3eeea;
+}
+
 
 /* effects */
 
-
+.fa-solid:hover {
+    transform: scale(1.25);
+}
 
 
 /* debug */
 
 .vs-debug #left-side-app>div {
     min-height: 5vh;
-    background-color: aqua;
-    border: 1px solid grey;
+
 }
