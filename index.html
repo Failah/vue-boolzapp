@@ -28,7 +28,7 @@
                 <!-- LOGGED USER TOP AREA -->
                 <div id="logged-user" class="vs-row vs-bg-user-grey justify-content-between align-items-center">
                     <div class="vs-row align-items-center">
-                        <div class="vs-contact-avatar ms-2 my-2">
+                        <div class="vs-contact-avatar ms-3 my-2">
                             <img class="img-fluid" src="img/avatar_io.jpg" alt="">
                         </div>
                         <span>Sofia</span>
@@ -58,15 +58,15 @@
 
                 <!-- CONTACTS AREA -->
                 <div class="contacts-container">
-                    <div id="contacts-area" @click="setActiveContact(index)" class="vs-row"
+                    <div id="contacts-area" @click="setActiveContact(index)" class="vs-row py-2 ps-4"
                         :class="{ 'active-chat': index === activeIndex }" v-for="(contact, index) in contacts">
-                        <div class="vs-contact-avatar">
+                        <div class="vs-contact-avatar me-3">
                             <img class="img-fluid" :src="contacts[index].avatar" :alt="contact.name">
                         </div>
                         <div class="vs-flex-grow">
                             <div class="vs-row justify-content-between">
-                                <span>{{ contacts[index].name }}</span>
-                                <span>12:00</span>
+                                <span class="h6 fs-5">{{ contacts[index].name }}</span>
+                                <span class="me-3">12:00</span>
                             </div>
                             <p>
                                 Ultimo messaggio inviato
@@ -74,7 +74,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <div id="right-side-app">
@@ -82,13 +81,18 @@
                     class="vs-row vs-bg-user-grey justify-content-between align-items-center">
                     <div class="vs-row align-items-center">
                         <div class="vs-contact-avatar ms-2 my-2">
-                            <img class="img-fluid" src="img/avatar_1.jpg" alt="Mattia">
+                            <img class="img-fluid" :src="contacts[activeIndex].avatar"
+                                :alt="contacts[activeIndex].name">
                         </div>
-                        <span>Mattia</span>
+                        <div class="vs-column justify-content-center">
+                            <div>{{ contacts[activeIndex].name }}</div>
+                            <p>Ultimo accesso oggi alle 12:00</p>
+                        </div>
+
                     </div>
                     <div class="icon-area vs-row">
-                        <div class="me-4"><i class="fa-solid fa-circle-notch"></i></div>
-                        <div class="me-4"><i class="fa-solid fa-message"></i></div>
+                        <div class="me-4"><i class="fa-solid fa-magnifying-glass"></i></i></div>
+                        <div class="me-4"><i class="fa-solid fa-paperclip"></i></i></div>
                         <div class="me-4"><i class="fa-solid fa-ellipsis-vertical"></i></div>
                     </div>
                 </div>

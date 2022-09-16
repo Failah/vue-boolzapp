@@ -34,6 +34,14 @@ img {
     background-color: #e9ebeb;
 }
 
+p {
+    margin-bottom: 0 !important;
+}
+
+span {
+    margin-bottom: 0 !important;
+}
+
 
 /* contents */
 
@@ -72,13 +80,16 @@ img {
     margin-top: 3vh;
 }
 
+
+/********************************************** LEFT SIDE APP */
+
 #left-side-app {
-    width: 40%;
+    width: 35%;
     height: 100%;
 }
 
 #logged-user {
-    border-right: 1px solid #b1b1b1;
+    border-right: 1px solid #d6d6d6;
 }
 
 .vs-contact-avatar {
@@ -102,6 +113,10 @@ img {
     background-color: #8edafc;
 }
 
+#search-area {
+    background-color: #fafafa;
+}
+
 .contacts-container {
     overflow-y: scroll;
     height: 81%;
@@ -111,8 +126,21 @@ img {
     border-top: 1px solid #eaeaea;
 }
 
+#contacts-area .vs-flex-grow p {
+    font-size: 0.82rem;
+    color: #b6b9bb;
+}
+
+#contacts-area div:nth-child(2) div span:nth-child(2) {
+    font-size: 0.75rem;
+    color: #b6b9bb;
+}
+
+
+/********************************************** RIGHT SIDE APP */
+
 #right-side-app {
-    width: 60%;
+    width: 65%;
 }
 
 #chat-area {
@@ -122,6 +150,7 @@ img {
 #messages-container {
     overflow-y: scroll;
     flex-grow: 1;
+    background-image: url(../img/mine.jpg);
 }
 
 #new-message-area {
