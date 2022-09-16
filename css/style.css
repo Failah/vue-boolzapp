@@ -137,6 +137,28 @@ span {
     background-color: #fafafa;
 }
 
+#search-area div {
+    width: 100%;
+    background-color: white;
+}
+
+#search-area div i {
+    color: #b1b1b1;
+}
+
+#search-area div div:first-child {
+    width: 15%;
+    border-right: 1px solid #fafafa;
+}
+
+#search-area div input {
+    border: none;
+    width: 100%;
+    font-size: 0.8rem;
+    padding-left: 20px;
+    outline: none;
+}
+
 .contacts-container {
     overflow-y: scroll;
     height: 81%;
@@ -183,12 +205,4 @@ span {
 
 .fa-solid:hover {
     transform: scale(1.25);
-}
-
-
-/* debug */
-
-.vs-debug #left-side-app>div {
-    min-height: 5vh;
-
 }
