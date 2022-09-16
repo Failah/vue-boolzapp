@@ -113,6 +113,26 @@ span {
     background-color: #8edafc;
 }
 
+#notification-area>div:first-child {
+    background-color: white;
+    border-radius: 50%;
+    padding: 13px 11px;
+    color: #8edafc;
+}
+
+#notification-area div:first-child i {
+    font-size: 1.25rem;
+}
+
+#notification-area>div:nth-child(2) div {
+    font-size: 0.95rem;
+}
+
+#notification-area>div:nth-child(2) a {
+    font-size: 0.82rem;
+    color: #4f7485;
+}
+
 #search-area {
     background-color: #fafafa;
 }
