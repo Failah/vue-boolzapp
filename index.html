@@ -76,7 +76,7 @@
                         </div>
                         <div class="vs-flex-grow">
                             <div class="vs-row justify-content-between">
-                                <span class="h6 fs-5">{{ contacts[index].name }}</span>
+                                <span class="h6">{{ contacts[index].name }}</span>
                                 <span class="me-3">12:00</span>
                             </div>
                             <p>
@@ -109,10 +109,14 @@
                 </div>
 
                 <div id="chat-area" class="vs-column">
-                    <div id="messages-container">
-                        <div v-for="message in contacts[activeIndex].messages" class="message">
-                            {{ message.message }}
+                    <div id="messages-container" class="pt-5">
+                        <div v-for="(message, index) in contacts[activeIndex].messages"
+                            :class="{ 'vs-sent': contacts[activeIndex].messages[index].status === 'sent' }"
+                            class="vs-column vs-received vs-message my-2 ps-3">
+                            <div>{{ message.message }}</div>
+                            <span class="pe-2 pb-1">12:00</span>
                         </div>
+
                     </div>
 
                     <div id="new-message-area" class="vs-row justify-content-between align-items-center">
