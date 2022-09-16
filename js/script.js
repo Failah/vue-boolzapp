@@ -171,11 +171,37 @@ const app = new Vue(
             ],
 
             activeIndex: 0,
+
+            newMessage: '',
         },
 
         methods: {
             setActiveContact(index) {
                 this.activeIndex = index;
+            },
+
+            sendNewMessage(text) {
+                let newMessageToSend = {
+                    date: '10/01/2020 15:30:55',
+                    message: text,
+                    status: 'sent'
+                };
+
+                this.contacts[this.activeIndex].messages.push(newMessageToSend);
+
+                this.newMessage = '';
+
+                setTimeout(this.sendAutomaticReply, 1000);
+            },
+
+            sendAutomaticReply() {
+                let automaticReplyToSend = {
+                    date: '10/01/2020 15:30:55',
+                    message: 'Che figata, funziona!',
+                    status: 'received'
+                };
+
+                this.contacts[this.activeIndex].messages.push(automaticReplyToSend);
             }
         }
     }

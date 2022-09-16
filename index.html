@@ -125,7 +125,8 @@
                         </div>
                         <div class="vs-flex-grow">
                             <div class="vs-row vs-flex-grow">
-                                <input type="text" placeholder="Scrivi un messaggio">
+                                <input v-model="newMessage" @keyUp.enter="sendNewMessage(newMessage)" type="text"
+                                    placeholder="Scrivi un messaggio">
                             </div>
                         </div>
                         <div>
