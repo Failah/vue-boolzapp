@@ -202,12 +202,13 @@ span {
     max-width: 310px;
     background-color: white;
     border-radius: 9px;
+    position: relative;
 }
 
 .vs-message i {
-    position: relative;
-    top: -21px;
-    right: -269px;
+    position: absolute;
+    top: 12px;
+    right: 10px;
     display: none;
 }
 
