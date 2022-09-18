@@ -170,6 +170,19 @@ const app = new Vue(
                 }
             ],
 
+            randomMessagesAutoReplies: [
+                'Che figata, funziona!',
+                'Ciao io sono Valerio e ho sviluppato quest\'app!',
+                'Sono soltanto un bot ma so rispondere!',
+                'Ho una paperella gialla che mi supporta sempre mentre scrivo codice!',
+                'Oggi non ho voglia di fare niente!',
+                'Ordiniamo una bella pizza per cena? E anelli di cipolla fritti?',
+                'Ciao mi chiamo Valerio e sono iscritto alla Boolean!',
+                'Sono soltanto un messaggio selezionato casualmente in un array di messaggi pronti!',
+                'Ok! (lo chiedeva la consegna lol)',
+                'Caparezza è uno dei miei cantanti preferiti!'
+            ],
+
             activeIndex: 0,
 
             newMessage: '',
@@ -195,9 +208,15 @@ const app = new Vue(
             },
 
             sendAutomaticReply() {
+
+
+                let randomMessageIndex = Math.floor(Math.random() * 10);
+
+                let randomSelectedMessage = this.randomMessagesAutoReplies[randomMessageIndex];
+
                 let automaticReplyToSend = {
                     date: '10/01/2020 15:30:55',
-                    message: 'Che figata, funziona!',
+                    message: randomSelectedMessage,
                     status: 'received'
                 };
 
