@@ -186,6 +186,8 @@ const app = new Vue(
             activeIndex: 0,
 
             newMessage: '',
+
+
         },
 
         methods: {
@@ -206,11 +208,12 @@ const app = new Vue(
 
                 setTimeout(this.autoBottomScroll, 30);
 
-                setTimeout(this.sendAutomaticReply, 1000);
+                setTimeout(this.displayContactIsTyping, 1000);
+
+                setTimeout(this.sendAutomaticReply, 3000);
             },
 
             sendAutomaticReply() {
-
 
                 let randomMessageIndex = Math.floor(Math.random() * 10);
 
@@ -225,11 +228,21 @@ const app = new Vue(
                 this.contacts[this.activeIndex].messages.push(automaticReplyToSend);
 
                 setTimeout(this.autoBottomScroll, 30);
+
+                // changes the "last access" text back to "last access today at..." after getting an answer
+                let contactIsTypingArea = document.getElementById('contact-last-access');
+                contactIsTypingArea.innerHTML = 'Ultimo accesso oggi alle 12:00';
             },
 
             autoBottomScroll() {
                 document.getElementById('bottom-scroll').scrollIntoView();
             },
+
+            // changes the "last access" text into "user is typing" when user is answering a message
+            displayContactIsTyping() {
+                let contactIsTypingArea = document.getElementById('contact-last-access');
+                contactIsTypingArea.innerHTML = this.contacts[this.activeIndex].name + ' sta scrivendo...';
+            }
         }
     }
 )
