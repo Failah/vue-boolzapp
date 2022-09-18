@@ -227,14 +227,8 @@ const app = new Vue(
                 setTimeout(this.autoBottomScroll, 30);
             },
 
-            // autoScrollDown() {
-            //     let elementToScroll = document.getElementById('messages-container');
-            //     elementToScroll.scrollTop = elementToScroll.scrollHeight;
-            // }
-
             autoBottomScroll() {
                 document.getElementById('bottom-scroll').scrollIntoView();
-                //window.setTimeout( function () { top(); }, 2000 );
             },
         }
     }
