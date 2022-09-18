@@ -193,6 +193,7 @@ span {
 
 #messages-container {
     overflow-y: scroll;
+    overflow-x: hidden;
     flex-grow: 1;
     background-image: url(../img/mine.jpg);
 }
@@ -201,6 +202,13 @@ span {
     max-width: 310px;
     background-color: white;
     border-radius: 9px;
+}
+
+.vs-message i {
+    position: relative;
+    top: -21px;
+    right: -269px;
+    display: none;
 }
 
 .vs-received {
@@ -274,4 +282,16 @@ span {
 
 #contacts-area:hover {
     background-color: rgb(243, 243, 243);
+}
+
+.vs-message:hover {
+    cursor: text;
+}
+
+.vs-message:hover i {
+    transform: none !important;
+}
+
+.vs-message:hover i {
+    display: inline-block;
 }
