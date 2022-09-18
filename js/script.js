@@ -204,6 +204,8 @@ const app = new Vue(
 
                 this.newMessage = '';
 
+                setTimeout(this.autoBottomScroll, 30);
+
                 setTimeout(this.sendAutomaticReply, 1000);
             },
 
@@ -221,7 +223,19 @@ const app = new Vue(
                 };
 
                 this.contacts[this.activeIndex].messages.push(automaticReplyToSend);
-            }
+
+                setTimeout(this.autoBottomScroll, 30);
+            },
+
+            // autoScrollDown() {
+            //     let elementToScroll = document.getElementById('messages-container');
+            //     elementToScroll.scrollTop = elementToScroll.scrollHeight;
+            // }
+
+            autoBottomScroll() {
+                document.getElementById('bottom-scroll').scrollIntoView();
+                //window.setTimeout( function () { top(); }, 2000 );
+            },
         }
     }
 )

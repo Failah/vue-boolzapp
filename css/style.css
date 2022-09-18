@@ -227,7 +227,7 @@ span {
 }
 
 #new-message-area {
-    height: 70px;
+    min-height: 70px;
     background-color: #f3eeea;
 }
 
