@@ -187,7 +187,7 @@ const app = new Vue(
 
             newMessage: '',
 
-
+            activePopMenu: true,
         },
 
         methods: {
@@ -242,7 +242,40 @@ const app = new Vue(
             displayContactIsTyping() {
                 let contactIsTypingArea = document.getElementById('contact-last-access');
                 contactIsTypingArea.innerHTML = this.contacts[this.activeIndex].name + ' sta scrivendo...';
-            }
+            },
+
+            switchActivePopMenu() {
+                console.log('Down-arrow clicked correctly');
+                this.activePopMenu = !this.activePopMenu;
+                console.log(this.activePopMenu);
+            },
+
+            getHoursMinutes(dateToFormat) {
+                // dateToFormat = "10/01/2020 15:30:55",
+                const array = dateToFormat.split(" "); // ["10/01/2020",  "15:30:55"]
+                const ora = array[1]; // "15:30:55"
+                const arrayOra = ora.split(":"); // ["15", "30", "55"]
+                const oreMinuti = arrayOra[0] + ":" + arrayOra[1]; // "15:30"
+                return oreMinuti;
+            },
+
+            getNow() {
+                const now = new Date();
+                console.log(now.getHours() + ":" + now.getMinutes());
+
+                const hours = this.formatDatePart(now.getHours());
+                const minutes = this.formatDatePart(now.getMinutes());
+                const seconds = this.formatDatePart(now.getSeconds());
+
+                const day = this.formatDatePart(now.getDay());
+                const month = this.formatDatePart(now.getMonth() + 1);
+                const year = now.getFullYear();
+                return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+            },
+
+            formatDatePart(datePart) {
+                return datePart < 10 ? "0" + datePart : "" + datePart;
+            },
         }
     }
 )

@@ -48,7 +48,8 @@ span {
 #root {
     height: 100vh;
     position: relative;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
+    padding-top: 3vh;
 }
 
 .vs-bg-lightgreen {
@@ -57,7 +58,7 @@ span {
     width: 100%;
     position: absolute;
     z-index: -1;
-    margin-top: -5vh;
+    top: 0;
 }
 
 .vs-bg-lightgrey {
@@ -66,6 +67,7 @@ span {
     width: 100%;
     position: absolute;
     z-index: -2;
+    top: 0;
 }
 
 .vs-bg-user-grey {
@@ -77,7 +79,7 @@ span {
     height: 94vh;
     margin: 0 auto;
     background-color: white;
-    margin-top: 3vh;
+    /* margin-top: 3vh; */
 }
 
 
@@ -223,9 +225,34 @@ span {
     margin-left: 0 !important;
 }
 
+#message-pop-menu {
+    height: 100px;
+    width: 200px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 2px 2px #888888;
+    position: absolute;
+    right: 6px;
+    top: 30px;
+    display: none;
+}
+
+#message-pop-menu div {
+    width: 100%;
+    height: 50%;
+    vertical-align: middle;
+    padding-left: 18px;
+}
+
+.pop-menu-active {
+    display: inline-block !important;
+    z-index: 10;
+}
+
 .vs-message div {
     font-size: 0.95rem;
     padding-top: 12px;
+    padding-right: 30px;
 }
 
 .vs-message span {
@@ -295,4 +322,9 @@ span {
 
 .vs-message:hover i {
     display: inline-block;
+}
+
+#message-pop-menu div:hover {
+    background-color: rgb(243, 243, 243);
+    cursor: pointer;
 }
