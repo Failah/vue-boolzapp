@@ -197,7 +197,7 @@ const app = new Vue(
 
             sendNewMessage(text) {
                 let newMessageToSend = {
-                    date: '10/01/2020 15:30:55',
+                    date: this.getNow(),
                     message: text,
                     status: 'sent'
                 };
@@ -220,7 +220,7 @@ const app = new Vue(
                 let randomSelectedMessage = this.randomMessagesAutoReplies[randomMessageIndex];
 
                 let automaticReplyToSend = {
-                    date: '10/01/2020 15:30:55',
+                    date: this.getNow(),
                     message: randomSelectedMessage,
                     status: 'received'
                 };
