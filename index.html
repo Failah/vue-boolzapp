@@ -117,9 +117,9 @@
                             :class="{ 'vs-sent': contacts[activeIndex].messages[index].status === 'sent' }"
                             class="vs-column vs-received vs-message my-2 ps-3">
                             <div>{{ message.message }}</div>
-                            <i @click="switchActivePopMenu()" class="fa-solid fa-angle-down"></i>
+                            <i @click="switchActivePopMenu(index)" class="fa-solid fa-angle-down"></i>
                             <span class="pe-2 pb-1">{{ getHoursMinutes(message.date) }}</span>
-                            <section id="message-pop-menu" :class="{ 'pop-menu-active': activePopMenu === false }">
+                            <section id="message-pop-menu" :class="{ 'pop-menu-active': index === popMenuIndex }">
                                 <div>Info messaggio</div>
                                 <div>Cancella messaggio</div>
                             </section>

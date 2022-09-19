@@ -187,7 +187,9 @@ const app = new Vue(
 
             newMessage: '',
 
-            activePopMenu: true,
+            // activePopMenu: true,
+
+            popMenuIndex: undefined,
         },
 
         methods: {
@@ -244,10 +246,16 @@ const app = new Vue(
                 contactIsTypingArea.innerHTML = this.contacts[this.activeIndex].name + ' sta scrivendo...';
             },
 
-            switchActivePopMenu() {
+            switchActivePopMenu(index) {
                 console.log('Down-arrow clicked correctly');
-                this.activePopMenu = !this.activePopMenu;
-                console.log(this.activePopMenu);
+
+                if (this.popMenuIndex != index) {
+                    this.popMenuIndex = index;
+                    console.log(this.popMenuIndex);
+                } else {
+                    this.popMenuIndex = undefined;
+                }
+
             },
 
             getHoursMinutes(dateToFormat) {
