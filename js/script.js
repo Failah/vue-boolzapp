@@ -255,11 +255,9 @@ const app = new Vue(
                 } else {
                     this.popMenuIndex = undefined;
                 }
-
             },
 
             getHoursMinutes(dateToFormat) {
-                // dateToFormat = "10/01/2020 15:30:55",
                 const array = dateToFormat.split(" "); // ["10/01/2020",  "15:30:55"]
                 const ora = array[1]; // "15:30:55"
                 const arrayOra = ora.split(":"); // ["15", "30", "55"]
@@ -284,6 +282,12 @@ const app = new Vue(
             formatDatePart(datePart) {
                 return datePart < 10 ? "0" + datePart : "" + datePart;
             },
+
+            deleteMessage(index) {
+                console.log('Delete message clicked');
+                this.contacts[this.activeIndex].messages.splice(index, 1);
+
+            }
         }
     }
 )

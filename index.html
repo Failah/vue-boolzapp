@@ -121,7 +121,7 @@
                             <span class="pe-2 pb-1">{{ getHoursMinutes(message.date) }}</span>
                             <section id="message-pop-menu" :class="{ 'pop-menu-active': index === popMenuIndex }">
                                 <div>Info messaggio</div>
-                                <div>Cancella messaggio</div>
+                                <div @click="deleteMessage(index)">Cancella messaggio</div>
                             </section>
                         </div>
                         <div id="bottom-scroll"></div>
