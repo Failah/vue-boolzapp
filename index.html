@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <div id="root">
+    <div id="root" @click="closePopUpMenu">
         <div class="vs-bg-lightgreen"></div>
         <div class="vs-bg-lightgrey"></div>
         <div class="vs-boolzap-container vs-row">
@@ -64,7 +64,8 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
                         <div class="vs-row justify-content-center align-items-center vs-flex-grow">
-                            <input type="text" placeholder="Cerca o inizia una nuova chat">
+                            <input id="search-input" @keyUp="filterContacts" type="text" v-model="searchInput"
+                                placeholder="Cerca o inizia una nuova chat">
                         </div>
                     </div>
                 </div>
@@ -72,7 +73,8 @@
                 <!-- CONTACTS AREA -->
                 <div class="contacts-container">
                     <div id="contacts-area" @click="setActiveContact(index)" class="vs-row py-2 ps-4"
-                        :class="{ 'active-chat': index === activeIndex }" v-for="(contact, index) in contacts">
+                        :class="{ 'active-chat': index === activeIndex }" v-for="(contact, index) in contacts"
+                        v-if="contact.visible">
                         <div class="vs-contact-avatar me-3">
                             <img class="img-fluid" :src="contacts[index].avatar" :alt="contact.name">
                         </div>
@@ -117,7 +119,7 @@
                             :class="{ 'vs-sent': contacts[activeIndex].messages[index].status === 'sent' }"
                             class="vs-column vs-received vs-message my-2 ps-3">
                             <div>{{ message.message }}</div>
-                            <i @click="switchActivePopMenu(index)" class="fa-solid fa-angle-down"></i>
+                            <i @click="switchActivePopMenu($event, index)" class="fa-solid fa-angle-down"></i>
                             <span class="pe-2 pb-1">{{ getHoursMinutes(message.date) }}</span>
                             <section id="message-pop-menu" :class="{ 'pop-menu-active': index === popMenuIndex }">
                                 <div>Info messaggio</div>

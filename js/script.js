@@ -190,6 +190,8 @@ const app = new Vue(
             // activePopMenu: true,
 
             popMenuIndex: undefined,
+
+            searchInput: '',
         },
 
         methods: {
@@ -246,8 +248,18 @@ const app = new Vue(
                 contactIsTypingArea.innerHTML = this.contacts[this.activeIndex].name + ' sta scrivendo...';
             },
 
-            switchActivePopMenu(index) {
+            filterContacts() {
+                console.log(this.searchInput);
+
+                this.contacts.forEach((contact) => {
+                    contact.visible = contact.name.toLowerCase().indexOf(this.searchInput.toLowerCase()) > -1;
+                })
+            },
+
+            switchActivePopMenu(event, index) {
                 console.log('Down-arrow clicked correctly');
+
+                event.stopPropagation();
 
                 if (this.popMenuIndex != index) {
                     this.popMenuIndex = index;
@@ -255,6 +267,10 @@ const app = new Vue(
                 } else {
                     this.popMenuIndex = undefined;
                 }
+            },
+
+            closePopUpMenu() {
+                this.popMenuIndex = undefined;
             },
 
             getHoursMinutes(dateToFormat) {
